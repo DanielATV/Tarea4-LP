@@ -1,4 +1,4 @@
-#lang scheme
+#lang racket
 
 #|
 Funcion: formato
@@ -82,7 +82,7 @@ Retorno: Lista con todos los nodos semi-madre del grafo x.
     (let aux ((actual (car(car x))) (visitados '()) (faltan (cdr x)) (resp '()) (vecinos (formato(cdr(car x)))))
       (if (null? faltan)
           #|Si  hay vecinos sin considerar|#
-          (if (= (length visitados) 0) (aux actual '(1) faltan resp (append (list actual)(completar vecinos vecinos x)))
+          (if (= (length visitados) 0) (aux actual '(1) faltan resp (completar vecinos vecinos x))
               #|Si el ultimo nodo de la lista es semi madre|#
               (if (>= (length vecinos) (length x))(append resp (list actual))
                   #|Termino|#
@@ -90,7 +90,6 @@ Retorno: Lista con todos los nodos semi-madre del grafo x.
           #|Si alcanza a todos los nodos sin pasar por nodos intermedios|#
           (if (>= (length vecinos) (length x)) (aux (car(car faltan)) '() (cdr faltan) (append resp (list actual)) (formato(cdr(car faltan))))
               #|Si  hay vecinos sin considerar|#
-              (if (= (length visitados) 0) (aux actual '(1) faltan resp (append (list actual)(completar vecinos vecinos x)))
+              (if (= (length visitados) 0) (aux actual '(1) faltan resp (completar vecinos vecinos x))
                   #|Si ya considero todos los vecinos  pero no es semi madre|#
                   (aux (car(car faltan)) '() (cdr faltan) resp (formato(cdr(car faltan))))))))))
-
