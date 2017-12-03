@@ -1,4 +1,5 @@
-#lang racket
+#lang scheme
+
 #|
 Funcion: formato
 Descripcion: Saca los elementos dentro de una lista de listas.
