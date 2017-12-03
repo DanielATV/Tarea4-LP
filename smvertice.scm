@@ -1,25 +1,63 @@
 #lang racket
+#|
+Funcion: formato
+Descripcion: Saca los elementos dentro de una lista de listas.
+Parametros:
+x lista
+Retorno: Lista con los elementos del interior de la lista de listas x.
+|#
 
 (define formato
   (lambda (x)
     (let aux ((resp '()) (llevo x))
+      #|Condicion de termino|#
       (if (null? llevo) resp
+          #|Avanza en la lista|#
           (aux (append resp (car llevo))(cdr llevo))))))
+#|
+Funcion: buscar
+Descripcion: Encuentra los nodos adyacentes de un nodo.
+Parametros:
+x entero
+y lista
+Retorno: Lista de los nodos adyacentes del vertice x en el grafo y.
+|#
 
 (define buscar
   (lambda (x y)
     (let aux ((buscar x) (falta y))
+      #|Condicion de termino|#
       (if (null? falta) '()
+          #|Si lo encuentra|#
       (if (= buscar (car(car falta))) (formato (cdr(car falta)))
+          #|Avanza en la lista|#
           (aux x (cdr falta)))))))
-
+#|
+Funcion: sinrepe
+Descripcion: Crea una lista de elementos no repetidos.
+Parametros:
+x lista
+y lista
+Retorno: Concatenacion de la lista x e y sin elementos repetidos.
+|#
 (define sinrepe
   (lambda (x y)
     (let aux ((llevo x) (falta y))
+      #|Condicion de termino|#
       (if (null? falta) llevo
+          #|Aniade el elemento|#
           (if (not(member (car falta) llevo)) (aux (append llevo (list (car falta))) (cdr falta))
+              #|Avanza en la lista si esta repetido|#
               (aux llevo (cdr falta)))))))
 
+#|
+Funcion: completar
+Descripcion: suma dos enteros positivos
+Parametros:
+n1 entero
+n2 entero
+Retorno: resultado de la operacion aritmetica de la suma entero
+|#
 (define completar
   (lambda (x y z)
     (let aux((llevo x) (falta y))
@@ -28,7 +66,7 @@
 
 #|
 Funcion: smvertice
-Descripcion: Encuentra los nodos semi-madre
+Descripcion: Encuentra los nodos semi-madre.
 Parametros:
 x lista
 Retorno: Lista con todos los nodos semi-madre del grafo x.
