@@ -12,7 +12,7 @@
 #|
 Funcion: quimica
 Descripcion: Dado un elemento de partida, busca  un elemento en elementos que empieze con la penultima letra del elemento de partida, repite este
-proceso hasta que no encuentre uno distinto a los que lleva.
+proceso con el ultimo que encontro hasta que no encuentre uno distinto a los que lleva.
 Parametros:
 x: Nombre del elemento para empezar la busqueda.
 Retorno: Lista con todos los elementos que cumplan la condicion.
