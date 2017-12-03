@@ -52,16 +52,19 @@ Retorno: Concatenacion de la lista x e y sin elementos repetidos.
 
 #|
 Funcion: completar
-Descripcion: suma dos enteros positivos
+Descripcion: Aniade a una lista  de vecinos los vecidos de cada elemento de otra lista.
 Parametros:
-n1 entero
-n2 entero
-Retorno: resultado de la operacion aritmetica de la suma entero
+x lista
+y lista
+z lista
+Retorno: Lista de vecinos de x mas los vecinos de cada elemento de y, sin repeteir, en el grafo z.
 |#
 (define completar
   (lambda (x y z)
     (let aux((llevo x) (falta y))
+      #|Condicion de termino|#
       (if (null? falta) llevo
+          #|Aniade sin repetir|#
           (aux (append (sinrepe llevo (buscar (car falta) z))) (cdr falta))))))
 
 #|
