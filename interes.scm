@@ -2,7 +2,7 @@
 
 #|
 Funcion: interes
-Descripcion: Aplica la formula de interes compuesto y crea una lista con el resultado mes a mes.
+Descripcion: Aplica la formula de interes compuesto a un capital inicial.
 Parametros:
 x entero o float
 y entero o float
