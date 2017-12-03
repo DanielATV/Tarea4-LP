@@ -1,5 +1,14 @@
 #lang scheme
 
+#|
+Funcion: raiz
+Descripcion: Aproxima el resultado de una raiz cuadrada.
+Parametros:
+x entero
+y entero
+Retorno: Resultado de aplicar la aproximacion y veces.
+|#
+
 
 (define raiz
   (lambda (x y)
