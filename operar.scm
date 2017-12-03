@@ -1,24 +1,22 @@
 #lang scheme
-#|
-Funcion: Suma_Enteros
-Descripcion: suma dos enteros positivos
-Parametros:
-n1 entero
-n2 entero
-Retorno: resultado de la operacion aritmetica de la suma entero
-|#
 
+#|
+Funcion: codificar
+Descripcion: Cambia los 1 por True y los 0 por False.
+Parametros:
+x entero
+Retorno: True si recibe un 1 y False si recibe un 0.
+|#
 (define codificar
   (lambda (x)
     (if (eqv? x 1)#t
         #f)))
 #|
-Funcion: Suma_Enteros
-Descripcion: suma dos enteros positivos
+Funcion: decodificar
+Descripcion: Cambia los True por 1 y los False por 0.
 Parametros:
-n1 entero
-n2 entero
-Retorno: resultado de la operacion aritmetica de la suma entero
+x boleano
+Retorno: 1 si recibe True y 0 si recibe False.
 |#
 
 (define decodificar
@@ -27,19 +25,22 @@ Retorno: resultado de la operacion aritmetica de la suma entero
         0)))
 
 #|
-Funcion: Suma_Enteros
-Descripcion: suma dos enteros positivos
+Funcion: operar
+Descripcion: Toma el i-esimo de ambas listas y se le aplica un operador.
 Parametros:
-n1 entero
-n2 entero
-Retorno: resultado de la operacion aritmetica de la suma entero
+x funcion
+y lista
+z lista
+Retorno: Lista de resultados de aplicar el operador a cada i-esimo elemento de ambas listas.
 |#
 
 (define operar
   (lambda (x)
     (lambda (y z)
       (let ((rsp '()))
+        #|Condicion de termino|#
         (if (null?  y) rsp
+            #|Aniade el elemento luego de aplicar el operador x|#
             (append rsp (list (decodificar (x (codificar (car y)) (codificar (car z))))) ((operar x) (cdr y) (cdr z)))
             )))))
 
