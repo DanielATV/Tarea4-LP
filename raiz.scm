@@ -7,7 +7,7 @@ Parametros:
 x entero
 y entero
 Retorno: Resultado de aplicar la aproximacion a x y veces.
-#||#
+|#
 
 
 (define raiz
