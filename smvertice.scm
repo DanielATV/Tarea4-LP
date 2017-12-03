@@ -26,6 +26,14 @@
       (if (null? falta) llevo
           (aux (append (sinrepe llevo (buscar (car falta) z))) (cdr falta))))))
 
+#|
+Funcion: smvertice
+Descripcion: Encuentra los nodos semi-madre
+Parametros:
+x lista
+Retorno: Lista con todos los nodos semi-madre del grafo x.
+|#
+
 (define smvertice
   (lambda (x)
     (let aux ((actual (car(car x))) (visitados '()) (faltan (cdr x)) (resp '()) (vecinos (append (list (car(car x)))(formato(cdr(car x))))))
@@ -38,10 +46,3 @@
                   (aux (car(car faltan)) '() (cdr faltan) resp (formato(cdr(car faltan))))))))))
 
 
-(smvertice '((1 (2))
-(2 (1 5))
-(3 (2))
-(4 (6))
-(5 (6))
-(6 (1))
-(7 (2 3 4))))
