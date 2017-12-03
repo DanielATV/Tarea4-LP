@@ -1,5 +1,14 @@
 #lang scheme
 
+#|
+Funcion: collatz
+Descripcion: Aplica la conjetura de Collatz a una lista de numeros.
+Parametros:
+n1 entero
+n2 entero
+Retorno: resultado de la operacion aritmetica de la suma entero
+|#
+
 (define collatz
   (lambda (x)
     (let aux ((val (car x))(leer x)(rsp '())(mayor (car x)))
