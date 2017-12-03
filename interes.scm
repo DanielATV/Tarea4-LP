@@ -7,7 +7,7 @@ Parametros:
 x entero o float
 y entero o float
 z entero
-Retorno: Resultado de aplicar el interes compuesto mes a mes.
+Retorno: Resultado de aplicar un interes y a un capital x por z meses, mes a mes.
 |#
 
 (define interes
